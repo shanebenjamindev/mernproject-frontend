@@ -1,10 +1,10 @@
 import React from 'react'
-import { WrapperTypeProduct } from './style'
+import { WrapperType } from './style'
 
 export default function TypeProduct({ item }) {
     return (
-        <div>
+        <WrapperType>
             {item}
-        </div>
+        </WrapperType>
     )
 }

@@ -2,14 +2,25 @@ import React from 'react'
 import { WrapperAccount, WrapperCart, WrapperHeader, WrapperHeaderText } from './style'
 import { Col } from 'antd'
 import Search from 'antd/es/input/Search';
-import { UserOutlined, ShoppingCartOutlined, CaretDownOutlined } from '@ant-design/icons';
+import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import TypeProduct from '../TypeProduct/TypeProduct';
 
 export default function HeaderComponent() {
+  const arr = ["điện gia dụng", "xe cộ", "mẹ & bé", "khỏe đẹp", "nhà cửa", "sách", "thể thao"]
+
+  // const renderTypeProduct = () => {
+  //   return arr.map((product, index) => {
+  //     return <TypeProduct item={product} key={index} />
+  //   })
+  // }
+
   return (
     <div>
+
       <WrapperHeader>
 
-        <Col span={3}>
+        <Col span={2}>
           <WrapperHeaderText>
             <span>
               Logo
@@ -17,7 +28,7 @@ export default function HeaderComponent() {
           </WrapperHeaderText>
         </Col>
 
-        <Col span={12}>
+        <Col span={15}>
           <Search
             enterButton="Search"
             allowClear
@@ -26,27 +37,27 @@ export default function HeaderComponent() {
           </Search>
         </Col>
 
-        <Col span={6}>
+        <Col span={7}>
           <WrapperAccount>
-            <div>
-              <UserOutlined style={{ fontSize: "30px" }} />
-            </div>
+            <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+              <HomeOutlined style={{ fontSize: "25px" }} />
 
-            <div>
-              <div>Đăng nhập / Đăng ký</div>
-              <div>Tài khoản
-                <CaretDownOutlined />
-              </div>
-            </div>
+              Trang chủ</Link>
+            <Link to="/account">
+              Tài khoản
+            </Link>
+
+            <WrapperCart>
+              <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+            </WrapperCart>
+
           </WrapperAccount>
-        </Col>
-
-        <Col span={3}>
-          <WrapperCart>
-            <ShoppingCartOutlined style={{ fontSize: "30px" }} />
-          </WrapperCart>
         </Col>
       </WrapperHeader>
     </div>
   )
 }
+
+// <WrapperTypeProduct>
+//   {renderTypeProduct()}
+// </WrapperTypeProduct>

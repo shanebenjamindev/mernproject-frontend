@@ -2,7 +2,9 @@ import { Row } from 'antd';
 import styled from 'styled-components';
 
 export const WrapperHeader = styled(Row)`
-    padding: 10px 20px;
+    padding: 20px 20px;
+    
+    background-color: var(--white-color);
     `
 
 export const WrapperHeaderText = styled.span`
@@ -12,6 +14,7 @@ export const WrapperHeaderText = styled.span`
 
 export const WrapperAccount = styled.div`
     display: flex;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     `
