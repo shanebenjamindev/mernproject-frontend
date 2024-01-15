@@ -26,7 +26,7 @@ export default function NavigatorComponent() {
 
     return (
         <WrapperTypeProduct>
-        <h1>Category</h1>
+            <h1>Category</h1>
             {renderTypeProduct()}
         </WrapperTypeProduct>
     )
