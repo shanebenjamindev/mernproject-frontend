@@ -9,14 +9,12 @@ export default function BannerComponent(props) {
 
 
     return (
-        <Row>
-            <WrapperBannerComponent>
-                {sliders?.map((slide, index) => (
-                    <WrapperBannerImg key={index}>
-                        <img src={slide} alt={`Slide ${index}`} />
-                    </WrapperBannerImg>
-                ))}
-            </WrapperBannerComponent>
-        </Row>
+        <WrapperBannerComponent>
+            {sliders?.map((slide, index) => (
+                <WrapperBannerImg key={index}>
+                    <img src={slide} alt={`Slide ${index}`} />
+                </WrapperBannerImg>
+            ))}
+        </WrapperBannerComponent>
     );
 }

@@ -2,10 +2,9 @@ import React from 'react'
 import { WrapperAccount, WrapperCart, WrapperHeader, WrapperHeaderText } from './style'
 import { Col } from 'antd'
 import Search from 'antd/es/input/Search';
-import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import TypeProduct from '../TypeProduct/TypeProduct';
-
+import logo from '../../assets/images/logo.png'
 export default function HeaderComponent() {
   const arr = ["điện gia dụng", "xe cộ", "mẹ & bé", "khỏe đẹp", "nhà cửa", "sách", "thể thao"]
 
@@ -17,14 +16,10 @@ export default function HeaderComponent() {
 
   return (
     <div>
-
       <WrapperHeader>
-
         <Col span={2}>
           <WrapperHeaderText>
-            <span>
-              Logo
-            </span>
+            <img src={logo} alt='logo' width={80} />
           </WrapperHeaderText>
         </Col>
 
@@ -40,15 +35,17 @@ export default function HeaderComponent() {
         <Col span={7}>
           <WrapperAccount>
             <Link to="/" style={{ display: "flex", alignItems: "center" }}>
-              <HomeOutlined style={{ fontSize: "25px" }} />
+              <HomeOutlined style={{ fontSize: "30px", marginLeft: "10px" }} />
+              <span>Trang chủ</span>
+            </Link>
 
-              Trang chủ</Link>
             <Link to="/account">
-              Tài khoản
+              <UserOutlined style={{ fontSize: "30px", marginLeft: "10px" }} />
+              <span>Tài khoản</span>
             </Link>
 
             <WrapperCart>
-              <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+              <ShoppingCartOutlined style={{ fontSize: "30px" }} />
             </WrapperCart>
 
           </WrapperAccount>
