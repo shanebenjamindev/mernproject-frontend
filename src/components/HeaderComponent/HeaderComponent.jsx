@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { WrapperAccount, WrapperCart, WrapperHeader, WrapperHeaderText } from './style'
-import { Col } from 'antd'
+import { Button, Col } from 'antd'
 import Search from 'antd/es/input/Search';
 import { HomeOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
+import ModalAccount from './ModalAccount/ModalAccount';
 export default function HeaderComponent() {
   const arr = ["điện gia dụng", "xe cộ", "mẹ & bé", "khỏe đẹp", "nhà cửa", "sách", "thể thao"]
 
@@ -13,6 +14,16 @@ export default function HeaderComponent() {
   //     return <TypeProduct item={product} key={index} />
   //   })
   // }
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
 
   return (
     <div>
@@ -39,7 +50,7 @@ export default function HeaderComponent() {
               <span>Trang chủ</span>
             </Link>
 
-            <Link to="/account">
+            <Link onClick={showModal}>
               <UserOutlined style={{ fontSize: "30px", marginLeft: "10px" }} />
               <span>Tài khoản</span>
             </Link>
@@ -51,6 +62,9 @@ export default function HeaderComponent() {
           </WrapperAccount>
         </Col>
       </WrapperHeader>
+
+      <ModalAccount isVisible={isModalVisible} handleModalToggle={handleCancel} />
+
     </div>
   )
 }
